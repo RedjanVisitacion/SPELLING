@@ -1,0 +1,150 @@
+ * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f8ff;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    .wrapper-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 5vw;
+      text-align: center;
+    }
+
+    .word-container {
+      font-size: 6vw;
+      letter-spacing: 1vw;
+      margin-bottom: 40px;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    .keyboard {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 10px;
+
+    }
+
+    .row {
+      display: grid;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .row1, .row2 {
+      grid-template-columns: repeat(10, 1fr);
+    }
+
+    .row3 {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    .key {
+      height: 50px;
+      font-size: 18px;
+      background: #fff;
+      border: 2px solid #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+
+    .key.enter {
+      grid-column: span 2;
+      background: rgb(0, 0, 0);
+      color: white;
+    }
+
+    .key.clicked {
+      background-color: #ff5675;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .key:active {
+      background: #ddd;
+    }
+
+    #videoContainer {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      width: 90%;
+      max-width: 700px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      border: 5px solid black;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 6vw;
+      }
+
+      .word-container {
+        font-size: 7vw;
+        letter-spacing: 1.5vw;
+      }
+
+      .key {
+        font-size: 16px;
+        height: 45px;
+      }
+    }
+
+    @media (max-width: 468px) {
+      .key {
+        font-size: 25px;
+        height: 100px;
+      }
+
+      .keyboard {
+        max-width: 100%;
+      }
+
+      .word-container {
+        font-size: 20vw;
+      }
+
+      h1 {
+        font-size: 20vw;
+      }
+       #videoContainer {
+     
+      width: 100%;
+      max-width: 900px;
+   
+    }
+    }
