@@ -1,8 +1,14 @@
- * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #fefefe, #e0e0e0);
+  color: #333;
+}
 
 .home {
   width: 100%;
@@ -10,109 +16,119 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  box-sizing: border-box;
+  padding: 20px;
+  background: linear-gradient(to right, #ffe8ec, #f8faff);
 }
 
- .wrapper-center {
+.wrapper-center {
   display: flex;
   flex-direction: column;
   align-items: center;
- max-width: 800px;
+  max-width: 800px;
   width: 100%;
- 
-
-  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5vw;
+  text-align: center;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
 
-    h1 {
-      margin-bottom: 20px;
-      font-size: 3vw;
-      text-align: center;
-    }
+.word-container {
+  font-size: 2vw;
+  letter-spacing: 1vw;
+  margin-bottom: 40px;
+  text-align: center;
+  word-break: break-word;
+  font-weight: 600;
+  color: #555;
+}
 
-    .word-container {
-      font-size: 2vw;
-      letter-spacing: 1vw;
-      margin-bottom: 40px;
-      text-align: center;
-      word-break: break-word;
-    }
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  background: #f7f7f7;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
 
-    .keyboard {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-     
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      border-radius: 10px;
-
-    }
-
- .row {
+.row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
   width: 100%;
 }
 
+.key {
+  height: 50px;
+  font-size: 18px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
 
+.key:hover {
+  background: #f1f1f1;
+  transform: translateY(-2px);
+}
 
+.key.enter {
+  grid-column: span 2;
+  background: #333;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
 
-    .key {
-      height: 50px;
-      font-size: 18px;
-      background: #fff;
-      border: 2px solid #333;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
+.key.clicked {
+  background-color: #ff5b73;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 91, 115, 0.4);
+}
 
-    .key.enter {
-      grid-column: span 2;
-      background: rgb(0, 0, 0);
-      color: white;
-    }
+.key:active {
+  background: #ddd;
+}
 
-    .key.clicked {
-      background-color: #ff5675;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
+#videoContainer {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+}
 
-    .key:active {
-      background: #ddd;
-    }
+video {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
 
-    #videoContainer {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      width: 100%;
-      
-    }
-
-    video {
-      width: 100%;
-      height: 100%;
-  
-     
-    }
-
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
   h1 {
-    font-size: 7vw;
+    font-size: 6vw;
   }
 
   .word-container {
-    font-size: 8vw;
+    font-size: 6vw;
     letter-spacing: 1.5vw;
   }
 
@@ -120,34 +136,31 @@
     font-size: 5vw;
     height: 10vw;
   }
-
 }
 
 @media (max-width: 500px) {
- 
   .keyboard {
     width: 100%;
-
-   
   }
+
   .key {
     font-size: 5vw;
     height: 10vw;
   }
+
   .word-container {
-    font-size: 8vw;
+    font-size: 7vw;
   }
 
   h1 {
-    font-size: 5vw;
+    font-size: 6vw;
   }
-  
-    .row1, .row2 {
-      grid-template-columns: repeat(10, 1fr);
-    }
 
-    .row3 {
-      grid-template-columns: repeat(8, 1fr);
-    }
+  .row1, .row2 {
+    grid-template-columns: repeat(10, 1fr);
+  }
 
+  .row3 {
+    grid-template-columns: repeat(8, 1fr);
+  }
 }
